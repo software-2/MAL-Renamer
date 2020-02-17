@@ -31,15 +31,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox_SearchTerm = new System.Windows.Forms.TextBox();
             this.button_Search = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Episodes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StartYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button_Submit = new System.Windows.Forms.Button();
             this.textBox_Synopsis = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -68,16 +68,6 @@
             this.button_Search.UseVisualStyleBackColor = true;
             this.button_Search.Click += new System.EventHandler(this.Button_Search_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Location = new System.Drawing.Point(563, 25);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(225, 309);
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -93,6 +83,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(530, 282);
             this.dataGridView1.TabIndex = 10;
+            this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridView1_CellMouseDoubleClick);
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_RowEnter);
             // 
             // Title
@@ -124,7 +115,7 @@
             this.button_Submit.Name = "button_Submit";
             this.button_Submit.Size = new System.Drawing.Size(98, 31);
             this.button_Submit.TabIndex = 11;
-            this.button_Submit.Text = "Submit";
+            this.button_Submit.Text = "Select";
             this.button_Submit.UseVisualStyleBackColor = true;
             this.button_Submit.Click += new System.EventHandler(this.Button_Submit_Click);
             // 
@@ -135,6 +126,16 @@
             this.textBox_Synopsis.Name = "textBox_Synopsis";
             this.textBox_Synopsis.Size = new System.Drawing.Size(530, 98);
             this.textBox_Synopsis.TabIndex = 12;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Location = new System.Drawing.Point(563, 25);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(225, 309);
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
             // Form_Search
             // 
@@ -151,8 +152,8 @@
             this.Name = "Form_Search";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Search For Anime";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

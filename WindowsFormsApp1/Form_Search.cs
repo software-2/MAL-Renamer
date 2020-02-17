@@ -85,7 +85,7 @@ namespace WindowsFormsApp1
             System.Diagnostics.Process.Start(searchResults[dataGridView1.SelectedRows[0].Index].URL);
         }
 
-        private void Button_Submit_Click(object sender, EventArgs e)
+        private void Submit()
         {
             if (dataGridView1.SelectedRows.Count != 1)
             {
@@ -96,6 +96,16 @@ namespace WindowsFormsApp1
             this.DialogResult = DialogResult.OK;
 
             Close();
+        }
+
+        private void Button_Submit_Click(object sender, EventArgs e)
+        {
+            Submit();
+        }
+
+        private void DataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            Submit();
         }
     }
 }
