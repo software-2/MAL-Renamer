@@ -40,8 +40,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button_GetAnimeInfo = new System.Windows.Forms.Button();
             this.button_Rename = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +58,7 @@
             this.Preview});
             this.dataGridView1.Location = new System.Drawing.Point(12, 22);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(925, 590);
+            this.dataGridView1.Size = new System.Drawing.Size(1126, 590);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             // 
@@ -118,17 +118,18 @@
             // textBox_AnimeID
             // 
             this.textBox_AnimeID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox_AnimeID.Location = new System.Drawing.Point(12, 723);
+            this.textBox_AnimeID.Location = new System.Drawing.Point(12, 705);
             this.textBox_AnimeID.Name = "textBox_AnimeID";
-            this.textBox_AnimeID.Size = new System.Drawing.Size(382, 20);
+            this.textBox_AnimeID.Size = new System.Drawing.Size(61, 20);
             this.textBox_AnimeID.TabIndex = 5;
             this.textBox_AnimeID.Text = "6547";
+            this.textBox_AnimeID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_AnimeID_KeyPress);
             // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 707);
+            this.label2.Location = new System.Drawing.Point(12, 689);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 4;
@@ -137,11 +138,11 @@
             // button_GetAnimeInfo
             // 
             this.button_GetAnimeInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button_GetAnimeInfo.Location = new System.Drawing.Point(400, 724);
+            this.button_GetAnimeInfo.Location = new System.Drawing.Point(196, 693);
             this.button_GetAnimeInfo.Name = "button_GetAnimeInfo";
-            this.button_GetAnimeInfo.Size = new System.Drawing.Size(23, 19);
+            this.button_GetAnimeInfo.Size = new System.Drawing.Size(93, 32);
             this.button_GetAnimeInfo.TabIndex = 6;
-            this.button_GetAnimeInfo.Text = "...";
+            this.button_GetAnimeInfo.Text = "Manual Load";
             this.button_GetAnimeInfo.UseVisualStyleBackColor = true;
             this.button_GetAnimeInfo.Click += new System.EventHandler(this.Button_GetAnimeInfo_Click);
             // 
@@ -149,7 +150,7 @@
             // 
             this.button_Rename.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button_Rename.Enabled = false;
-            this.button_Rename.Location = new System.Drawing.Point(755, 906);
+            this.button_Rename.Location = new System.Drawing.Point(956, 906);
             this.button_Rename.Name = "button_Rename";
             this.button_Rename.Size = new System.Drawing.Size(181, 55);
             this.button_Rename.TabIndex = 7;
@@ -157,17 +158,9 @@
             this.button_Rename.UseVisualStyleBackColor = true;
             this.button_Rename.Click += new System.EventHandler(this.Button_Rename_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(450, 627);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(225, 309);
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(135, 687);
+            this.button1.Location = new System.Drawing.Point(89, 693);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(101, 32);
             this.button1.TabIndex = 9;
@@ -175,11 +168,21 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
-            // Form1
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Location = new System.Drawing.Point(450, 627);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(225, 309);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
+            // 
+            // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(949, 978);
+            this.ClientSize = new System.Drawing.Size(1150, 978);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button_Rename);
@@ -190,9 +193,9 @@
             this.Controls.Add(this.textBox_SourceFolder);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "Form1";
+            this.Name = "Form_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "MAL Renamer";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

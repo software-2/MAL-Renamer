@@ -51,6 +51,73 @@ namespace WindowsFormsApp1
             public List<Picture> Pictures { get; set; }
         }
 
+        public class SearchResult
+        {
+            [JsonProperty(PropertyName = "mal_id")]
+            public int ID { get; set; }
+
+            [JsonProperty(PropertyName = "url")]
+            public string URL { get; set; }
+
+            [JsonProperty(PropertyName = "image_url")]
+            public string ImageURL { get; set; }
+
+            [JsonProperty(PropertyName = "title")]
+            public string Title { get; set; }
+
+            [JsonProperty(PropertyName = "episodes")]
+            public string EpisodeCount { get; set; }
+
+            [JsonProperty(PropertyName = "start_date")]
+            public string StartDate { get; set; }
+
+            [JsonProperty(PropertyName = "end_date")]
+            public string EndDate { get; set; }
+
+            [JsonProperty(PropertyName = "synopsis")]
+            public string Synopsis { get; set; }
+
+            [JsonProperty(PropertyName = "airing")]
+            public bool Airing { get; set; }
+        }
+
+        private class SearchResults
+        {
+            [JsonProperty(PropertyName = "results")]
+            public List<SearchResult> Results { get; set; }
+        }
+
+
+        public class GeneralInfo
+        {
+            [JsonProperty(PropertyName = "mal_id")]
+            public int ID { get; set; }
+
+            [JsonProperty(PropertyName = "url")]
+            public string URL { get; set; }
+
+            [JsonProperty(PropertyName = "image_url")]
+            public string ImageURL { get; set; }
+
+            [JsonProperty(PropertyName = "title")]
+            public string Title { get; set; }
+
+            [JsonProperty(PropertyName = "title_english")]
+            public string TitleEnglish { get; set; }
+
+            [JsonProperty(PropertyName = "title_japanese")]
+            public string TitleJapanese { get; set; }
+
+            [JsonProperty(PropertyName = "episodes")]
+            public string EpisodeCount { get; set; }
+
+            [JsonProperty(PropertyName = "synopsis")]
+            public string Synopsis { get; set; }
+
+            [JsonProperty(PropertyName = "airing")]
+            public bool Airing { get; set; }
+        }
+
         static public List<Episode> GetEpisodes(string animeId)
         {
             var request = new RestRequest("anime/" + animeId + "/episodes", Method.GET);
@@ -67,6 +134,23 @@ namespace WindowsFormsApp1
             var pictures = JsonConvert.DeserializeObject<PicturesList>(response.Content).Pictures;
 
             return pictures;
+        }
+
+        static public List<SearchResult> Search(string searchQuery)
+        {
+            var request = new RestRequest("search/anime/", Method.GET);
+            request.AddParameter("q", searchQuery);
+            var response = client.Execute(request);
+            var results = JsonConvert.DeserializeObject<SearchResults>(response.Content).Results;
+
+            return results;
+        }
+
+        static public GeneralInfo GetInfo(string animeId)
+        {
+            var request = new RestRequest("anime/" + animeId, Method.GET);
+            var response = client.Execute(request);
+            return JsonConvert.DeserializeObject<GeneralInfo>(response.Content);
         }
     }
 }

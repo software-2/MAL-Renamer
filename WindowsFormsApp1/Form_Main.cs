@@ -19,6 +19,7 @@ namespace WindowsFormsApp1
     public partial class Form_Main : Form
     {
         List<Jikan.Episode> episodes;
+        Jikan.GeneralInfo info;
         string[] fileEntries;
 
         private void UpdateGrid()
@@ -55,6 +56,40 @@ namespace WindowsFormsApp1
             }
 
             button_Rename.Enabled = enabledRowCount == episodes.Count;
+        }
+
+        private async Task GetAnimeInfoAsync()
+        {
+            Form loading = new Form_Loading();
+            loading.Show(this);
+            await loadAnimeInfo();
+            loading.Close();
+        }
+
+        private async Task loadAnimeInfo()
+        {
+
+            await Task.Run(() =>
+            {
+                info = Jikan.GetInfo(textBox_AnimeID.Text);
+                episodes = Jikan.GetEpisodes(textBox_AnimeID.Text);
+
+                if (info != null && info.ImageURL != null)
+                {
+                    using (System.Net.WebClient webClient = new System.Net.WebClient())
+                    {
+                        using (Stream stream = webClient.OpenRead(info.ImageURL))
+                        {
+                            pictureBox1.Image = Image.FromStream(stream);
+                        }
+                    }
+                }
+                
+                if (textBox_SourceFolder.Text.Length > 0)
+                {
+                    UpdateGrid();
+                }
+            });
         }
 
         public class NaturalComparer : Comparer<string>
@@ -135,23 +170,7 @@ namespace WindowsFormsApp1
 
         private void Button_GetAnimeInfo_Click(object sender, EventArgs e)
         {
-            episodes = Jikan.GetEpisodes(textBox_AnimeID.Text);
-            var pictures = Jikan.GetPictures(textBox_AnimeID.Text);
-            if (pictures != null && pictures.Count > 0)
-            {
-                using (System.Net.WebClient webClient = new System.Net.WebClient())
-                {
-                    using (Stream stream = webClient.OpenRead(pictures[0].Small))
-                    {
-                        pictureBox1.Image = Image.FromStream(stream);
-                    }
-                }
-            }
-
-            if (textBox_SourceFolder.Text.Length > 0)
-            {
-                UpdateGrid();
-            }
+            _ = GetAnimeInfoAsync();
         }
 
         private void Button_Rename_Click(object sender, EventArgs e)
@@ -185,7 +204,44 @@ namespace WindowsFormsApp1
 
         private void Button1_Click(object sender, EventArgs e)
         {
+            string searchQuery = "";
+            if (Directory.Exists(textBox_SourceFolder.Text))
+            {
+                var dirInfo = new DirectoryInfo(textBox_SourceFolder.Text);
+                searchQuery = dirInfo.Name;
+                if (searchQuery.ToLower().Contains("season"))
+                {
+                    searchQuery = dirInfo.Parent.Name + " " + searchQuery;
+                }
+            }
 
+            using (var searchForm = new Form_Search(searchQuery))
+            {
+                var result = searchForm.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    textBox_AnimeID.Text = searchForm.MAL_ID.ToString();
+                    _ = GetAnimeInfoAsync();
+                }
+            }
+
+        }
+
+        private void TextBox_AnimeID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                _ = GetAnimeInfoAsync();
+            }
+        }
+
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+            if (info != null)
+            {
+                System.Diagnostics.Process.Start(info.URL);
+            }
         }
     }
 }
