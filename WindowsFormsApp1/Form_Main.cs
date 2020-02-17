@@ -13,9 +13,6 @@ using System.Text.RegularExpressions;
 
 namespace WindowsFormsApp1
 {
-
-
-
     public partial class Form_Main : Form
     {
         List<Jikan.Episode> episodes;
@@ -48,30 +45,45 @@ namespace WindowsFormsApp1
                 title = textBox_Title_Japanese.Text + textBox_SectionDivider.Text;
             }
 
-            string ident = textBox_Season_Prefix.Text +
-                int.Parse(textBox_Season.Text).ToString(textBox_Season_Digits.Text) +
-                textBox_Season_Suffix.Text +
-                textBox_Episode_Prefix.Text +
-                index.ToString(textBox_Episode_Digits.Text) +
-                textBox_Episode_Suffix.Text;
+            string season = "";
+            if (checkBox_IncludeSeason.Checked)
+            {
+                season = textBox_Season_Prefix.Text + 
+                    int.Parse(textBox_Season.Text).ToString(textBox_Season_Digits.Text) +
+                    textBox_Season_Suffix.Text;
+            }
 
             string episode = "";
+            if (checkBox_IncludeEpisode.Checked)
+            {
+                episode = textBox_Episode_Prefix.Text + 
+                    index.ToString(textBox_Episode_Digits.Text) + 
+                    textBox_Episode_Suffix.Text;
+            }
+
+            string episodeTitle = "";
             if (radioButton_Episodes_Default.Checked)
             {
-                episode = textBox_SectionDivider.Text + episodes[index - 1].Title;
+                episodeTitle = textBox_SectionDivider.Text + episodes[index - 1].Title;
             }
             else if (radioButton_Episodes_Default.Checked)
             {
-                episode = textBox_SectionDivider.Text + episodes[index - 1].TitleRO;
+                episodeTitle = textBox_SectionDivider.Text + episodes[index - 1].TitleRO;
             }
             else if (radioButton_Episodes_Default.Checked)
             {
-                episode = textBox_SectionDivider.Text + episodes[index - 1].TitleJP;
+                episodeTitle = textBox_SectionDivider.Text + episodes[index - 1].TitleJP;
             }
 
 
-            return title + ident + episode + fileExtension;
+            return title + season + episode + episodeTitle + fileExtension;
 
+        }
+
+        private bool isKnownVideoFile(string extension)
+        {
+            string[] formats = new [] { ".WEBM", ".MKV", ".MPG", ".MP2", ".MPEG", ".MPE", ".MPV", ".OGG", ".MP4", ".M4P", ".M4V", ".AVI", ".WMV", ".MOV", ".QT", ".FLV", ".SWF", ".AVCHD"};
+            return formats.Contains(extension, StringComparer.OrdinalIgnoreCase);
         }
 
         private void UpdateGrid()
@@ -161,7 +173,8 @@ namespace WindowsFormsApp1
             dataGridView1.Rows.Clear();
             foreach (string fileName in fileEntries)
             {
-                dataGridView1.Rows.Add(true, Path.GetFileName(fileName), Path.GetFileName(fileName));
+                bool enabled = isKnownVideoFile(Path.GetExtension(fileName));
+                dataGridView1.Rows.Add(enabled, Path.GetFileName(fileName), Path.GetFileName(fileName));
             }
 
             //Populate the Season number box
@@ -426,6 +439,16 @@ namespace WindowsFormsApp1
         }
 
         private void RadioButton_Episodes_None_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateGrid();
+        }
+
+        private void CheckBox_IncludeSeason_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateGrid();
+        }
+
+        private void CheckBox_IncludeEpisode_CheckedChanged(object sender, EventArgs e)
         {
             UpdateGrid();
         }

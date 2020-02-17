@@ -82,6 +82,8 @@
             this.textBox_Episode_Digits = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.button_Refresh = new System.Windows.Forms.Button();
+            this.checkBox_IncludeSeason = new System.Windows.Forms.CheckBox();
+            this.checkBox_IncludeEpisode = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -207,6 +209,7 @@
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button1.Location = new System.Drawing.Point(83, 681);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(101, 32);
@@ -217,6 +220,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Location = new System.Drawing.Point(450, 627);
             this.pictureBox1.Name = "pictureBox1";
@@ -227,6 +231,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.radioButton_Title_None);
             this.groupBox1.Controls.Add(this.radioButton_Title_Jp);
             this.groupBox1.Controls.Add(this.radioButton_Title_En);
@@ -305,6 +310,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label4.Location = new System.Drawing.Point(12, 739);
             this.label4.Name = "label4";
@@ -351,13 +357,16 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.checkBox_IncludeEpisode);
+            this.groupBox2.Controls.Add(this.checkBox_IncludeSeason);
             this.groupBox2.Controls.Add(this.textBox_StartingEpisode);
             this.groupBox2.Controls.Add(this.textBox_SectionDivider);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Location = new System.Drawing.Point(836, 627);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(301, 148);
+            this.groupBox2.Size = new System.Drawing.Size(301, 244);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Advanced";
@@ -384,6 +393,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.radioButton_Episodes_None);
             this.groupBox3.Controls.Add(this.radioButton_Episodes_Jp);
             this.groupBox3.Controls.Add(this.radioButton_Episodes_En);
@@ -463,7 +473,7 @@
             // textBox_StartingEpisode
             // 
             this.textBox_StartingEpisode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox_StartingEpisode.Location = new System.Drawing.Point(6, 78);
+            this.textBox_StartingEpisode.Location = new System.Drawing.Point(6, 82);
             this.textBox_StartingEpisode.Name = "textBox_StartingEpisode";
             this.textBox_StartingEpisode.Size = new System.Drawing.Size(79, 20);
             this.textBox_StartingEpisode.TabIndex = 22;
@@ -474,7 +484,7 @@
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 62);
+            this.label9.Location = new System.Drawing.Point(6, 66);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(84, 13);
             this.label9.TabIndex = 21;
@@ -482,6 +492,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.textBox_Season_Suffix);
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.textBox_Season_Prefix);
@@ -550,6 +561,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.textBox_Episode_Suffix);
             this.groupBox5.Controls.Add(this.label14);
             this.groupBox5.Controls.Add(this.textBox_Episode_Prefix);
@@ -619,13 +631,35 @@
             // button_Refresh
             // 
             this.button_Refresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_Refresh.Location = new System.Drawing.Point(954, 910);
+            this.button_Refresh.Location = new System.Drawing.Point(954, 905);
             this.button_Refresh.Name = "button_Refresh";
             this.button_Refresh.Size = new System.Drawing.Size(183, 31);
             this.button_Refresh.TabIndex = 32;
             this.button_Refresh.Text = "Refresh Preview";
             this.button_Refresh.UseVisualStyleBackColor = true;
             this.button_Refresh.Click += new System.EventHandler(this.Button_Refresh_Click);
+            // 
+            // checkBox_IncludeSeason
+            // 
+            this.checkBox_IncludeSeason.AutoSize = true;
+            this.checkBox_IncludeSeason.Location = new System.Drawing.Point(6, 119);
+            this.checkBox_IncludeSeason.Name = "checkBox_IncludeSeason";
+            this.checkBox_IncludeSeason.Size = new System.Drawing.Size(140, 17);
+            this.checkBox_IncludeSeason.TabIndex = 23;
+            this.checkBox_IncludeSeason.Text = "Include Season Number";
+            this.checkBox_IncludeSeason.UseVisualStyleBackColor = true;
+            this.checkBox_IncludeSeason.CheckedChanged += new System.EventHandler(this.CheckBox_IncludeSeason_CheckedChanged);
+            // 
+            // checkBox_IncludeEpisode
+            // 
+            this.checkBox_IncludeEpisode.AutoSize = true;
+            this.checkBox_IncludeEpisode.Location = new System.Drawing.Point(6, 142);
+            this.checkBox_IncludeEpisode.Name = "checkBox_IncludeEpisode";
+            this.checkBox_IncludeEpisode.Size = new System.Drawing.Size(142, 17);
+            this.checkBox_IncludeEpisode.TabIndex = 24;
+            this.checkBox_IncludeEpisode.Text = "Include Episode Number";
+            this.checkBox_IncludeEpisode.UseVisualStyleBackColor = true;
+            this.checkBox_IncludeEpisode.CheckedChanged += new System.EventHandler(this.CheckBox_IncludeEpisode_CheckedChanged);
             // 
             // Form_Main
             // 
@@ -658,6 +692,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(1166, 500);
             this.Name = "Form_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MAL Renamer";
@@ -733,6 +768,8 @@
         private System.Windows.Forms.TextBox textBox_Episode_Digits;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button button_Refresh;
+        private System.Windows.Forms.CheckBox checkBox_IncludeEpisode;
+        private System.Windows.Forms.CheckBox checkBox_IncludeSeason;
     }
 }
 
