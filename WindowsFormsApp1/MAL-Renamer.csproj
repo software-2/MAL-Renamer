@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form_CustomEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_CustomEdit.Designer.cs">
+      <DependentUpon>Form_CustomEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Loading.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     <Compile Include="Jikan.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form_CustomEdit.resx">
+      <DependentUpon>Form_CustomEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Loading.resx">
       <DependentUpon>Form_Loading.cs</DependentUpon>
     </EmbeddedResource>

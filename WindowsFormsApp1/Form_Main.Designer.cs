@@ -42,12 +42,11 @@
             this.button_GetAnimeInfo = new System.Windows.Forms.Button();
             this.button_Rename = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton_Title_Title = new System.Windows.Forms.RadioButton();
-            this.radioButton_Title_En = new System.Windows.Forms.RadioButton();
-            this.radioButton_Title_Jp = new System.Windows.Forms.RadioButton();
             this.radioButton_Title_None = new System.Windows.Forms.RadioButton();
+            this.radioButton_Title_Jp = new System.Windows.Forms.RadioButton();
+            this.radioButton_Title_En = new System.Windows.Forms.RadioButton();
+            this.radioButton_Title_Title = new System.Windows.Forms.RadioButton();
             this.textBox_Title_Default = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -56,8 +55,12 @@
             this.textBox_Title_Japanese = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.checkBox_IncludeEpisode = new System.Windows.Forms.CheckBox();
+            this.checkBox_IncludeSeason = new System.Windows.Forms.CheckBox();
+            this.textBox_StartingEpisode = new System.Windows.Forms.TextBox();
             this.textBox_SectionDivider = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.radioButton_Episodes_None = new System.Windows.Forms.RadioButton();
             this.radioButton_Episodes_Jp = new System.Windows.Forms.RadioButton();
@@ -65,15 +68,13 @@
             this.radioButton_Episodes_Default = new System.Windows.Forms.RadioButton();
             this.textBox_Season = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox_StartingEpisode = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.textBox_Season_Digits = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox_Season_Prefix = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.textBox_Season_Suffix = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.textBox_Season_Prefix = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox_Season_Digits = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.textBox_Episode_Suffix = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -82,19 +83,20 @@
             this.textBox_Episode_Digits = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.button_Refresh = new System.Windows.Forms.Button();
-            this.checkBox_IncludeSeason = new System.Windows.Forms.CheckBox();
-            this.checkBox_IncludeEpisode = new System.Windows.Forms.CheckBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -108,6 +110,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(1126, 599);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick_1);
+            this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridView1_CellMouseDoubleClick);
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellValueChanged);
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.DataGridView1_MouseClick);
             // 
@@ -142,7 +145,8 @@
             // 
             // textBox_SourceFolder
             // 
-            this.textBox_SourceFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBox_SourceFolder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_SourceFolder.Location = new System.Drawing.Point(12, 643);
             this.textBox_SourceFolder.Name = "textBox_SourceFolder";
             this.textBox_SourceFolder.Size = new System.Drawing.Size(382, 20);
@@ -151,7 +155,7 @@
             // 
             // button_SourceFolder
             // 
-            this.button_SourceFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button_SourceFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button_SourceFolder.Location = new System.Drawing.Point(400, 643);
             this.button_SourceFolder.Name = "button_SourceFolder";
             this.button_SourceFolder.Size = new System.Drawing.Size(23, 19);
@@ -199,7 +203,7 @@
             // 
             this.button_Rename.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button_Rename.Enabled = false;
-            this.button_Rename.Location = new System.Drawing.Point(954, 947);
+            this.button_Rename.Location = new System.Drawing.Point(954, 946);
             this.button_Rename.Name = "button_Rename";
             this.button_Rename.Size = new System.Drawing.Size(183, 55);
             this.button_Rename.TabIndex = 7;
@@ -218,17 +222,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Location = new System.Drawing.Point(450, 627);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(225, 309);
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -243,6 +236,39 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Title";
             // 
+            // radioButton_Title_None
+            // 
+            this.radioButton_Title_None.AutoSize = true;
+            this.radioButton_Title_None.Location = new System.Drawing.Point(7, 89);
+            this.radioButton_Title_None.Name = "radioButton_Title_None";
+            this.radioButton_Title_None.Size = new System.Drawing.Size(69, 17);
+            this.radioButton_Title_None.TabIndex = 3;
+            this.radioButton_Title_None.Text = "Omit Title";
+            this.radioButton_Title_None.UseVisualStyleBackColor = true;
+            this.radioButton_Title_None.CheckedChanged += new System.EventHandler(this.RadioButton_Title_None_CheckedChanged);
+            // 
+            // radioButton_Title_Jp
+            // 
+            this.radioButton_Title_Jp.AutoSize = true;
+            this.radioButton_Title_Jp.Location = new System.Drawing.Point(7, 66);
+            this.radioButton_Title_Jp.Name = "radioButton_Title_Jp";
+            this.radioButton_Title_Jp.Size = new System.Drawing.Size(93, 17);
+            this.radioButton_Title_Jp.TabIndex = 2;
+            this.radioButton_Title_Jp.Text = "Use Japanese";
+            this.radioButton_Title_Jp.UseVisualStyleBackColor = true;
+            this.radioButton_Title_Jp.CheckedChanged += new System.EventHandler(this.RadioButton_Title_Jp_CheckedChanged);
+            // 
+            // radioButton_Title_En
+            // 
+            this.radioButton_Title_En.AutoSize = true;
+            this.radioButton_Title_En.Location = new System.Drawing.Point(7, 43);
+            this.radioButton_Title_En.Name = "radioButton_Title_En";
+            this.radioButton_Title_En.Size = new System.Drawing.Size(81, 17);
+            this.radioButton_Title_En.TabIndex = 1;
+            this.radioButton_Title_En.Text = "Use English";
+            this.radioButton_Title_En.UseVisualStyleBackColor = true;
+            this.radioButton_Title_En.CheckedChanged += new System.EventHandler(this.RadioButton_Title_En_CheckedChanged);
+            // 
             // radioButton_Title_Title
             // 
             this.radioButton_Title_Title.AutoSize = true;
@@ -256,42 +282,10 @@
             this.radioButton_Title_Title.UseVisualStyleBackColor = true;
             this.radioButton_Title_Title.CheckedChanged += new System.EventHandler(this.RadioButton_Title_Title_CheckedChanged);
             // 
-            // radioButton_Title_En
-            // 
-            this.radioButton_Title_En.AutoSize = true;
-            this.radioButton_Title_En.Location = new System.Drawing.Point(7, 43);
-            this.radioButton_Title_En.Name = "radioButton_Title_En";
-            this.radioButton_Title_En.Size = new System.Drawing.Size(81, 17);
-            this.radioButton_Title_En.TabIndex = 1;
-            this.radioButton_Title_En.Text = "Use English";
-            this.radioButton_Title_En.UseVisualStyleBackColor = true;
-            this.radioButton_Title_En.CheckedChanged += new System.EventHandler(this.RadioButton_Title_En_CheckedChanged);
-            // 
-            // radioButton_Title_Jp
-            // 
-            this.radioButton_Title_Jp.AutoSize = true;
-            this.radioButton_Title_Jp.Location = new System.Drawing.Point(7, 66);
-            this.radioButton_Title_Jp.Name = "radioButton_Title_Jp";
-            this.radioButton_Title_Jp.Size = new System.Drawing.Size(93, 17);
-            this.radioButton_Title_Jp.TabIndex = 2;
-            this.radioButton_Title_Jp.Text = "Use Japanese";
-            this.radioButton_Title_Jp.UseVisualStyleBackColor = true;
-            this.radioButton_Title_Jp.CheckedChanged += new System.EventHandler(this.RadioButton_Title_Jp_CheckedChanged);
-            // 
-            // radioButton_Title_None
-            // 
-            this.radioButton_Title_None.AutoSize = true;
-            this.radioButton_Title_None.Location = new System.Drawing.Point(7, 89);
-            this.radioButton_Title_None.Name = "radioButton_Title_None";
-            this.radioButton_Title_None.Size = new System.Drawing.Size(69, 17);
-            this.radioButton_Title_None.TabIndex = 3;
-            this.radioButton_Title_None.Text = "Omit Title";
-            this.radioButton_Title_None.UseVisualStyleBackColor = true;
-            this.radioButton_Title_None.CheckedChanged += new System.EventHandler(this.RadioButton_Title_None_CheckedChanged);
-            // 
             // textBox_Title_Default
             // 
-            this.textBox_Title_Default.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBox_Title_Default.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_Title_Default.Location = new System.Drawing.Point(12, 766);
             this.textBox_Title_Default.Name = "textBox_Title_Default";
             this.textBox_Title_Default.Size = new System.Drawing.Size(382, 20);
@@ -310,7 +304,8 @@
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label4.Location = new System.Drawing.Point(12, 739);
             this.label4.Name = "label4";
@@ -319,7 +314,8 @@
             // 
             // textBox_Title_English
             // 
-            this.textBox_Title_English.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBox_Title_English.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_Title_English.Location = new System.Drawing.Point(12, 814);
             this.textBox_Title_English.Name = "textBox_Title_English";
             this.textBox_Title_English.Size = new System.Drawing.Size(382, 20);
@@ -338,7 +334,8 @@
             // 
             // textBox_Title_Japanese
             // 
-            this.textBox_Title_Japanese.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBox_Title_Japanese.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_Title_Japanese.Location = new System.Drawing.Point(12, 862);
             this.textBox_Title_Japanese.Name = "textBox_Title_Japanese";
             this.textBox_Title_Japanese.Size = new System.Drawing.Size(382, 20);
@@ -358,8 +355,6 @@
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.checkBox_IncludeEpisode);
-            this.groupBox2.Controls.Add(this.checkBox_IncludeSeason);
             this.groupBox2.Controls.Add(this.textBox_StartingEpisode);
             this.groupBox2.Controls.Add(this.textBox_SectionDivider);
             this.groupBox2.Controls.Add(this.label9);
@@ -371,15 +366,41 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Advanced";
             // 
-            // label7
+            // checkBox_IncludeEpisode
             // 
-            this.label7.AccessibleDescription = "";
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 16);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(79, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Section Divider";
+            this.checkBox_IncludeEpisode.AutoSize = true;
+            this.checkBox_IncludeEpisode.Checked = true;
+            this.checkBox_IncludeEpisode.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_IncludeEpisode.Location = new System.Drawing.Point(7, 0);
+            this.checkBox_IncludeEpisode.Name = "checkBox_IncludeEpisode";
+            this.checkBox_IncludeEpisode.Size = new System.Drawing.Size(64, 17);
+            this.checkBox_IncludeEpisode.TabIndex = 24;
+            this.checkBox_IncludeEpisode.Text = "Episode";
+            this.checkBox_IncludeEpisode.UseVisualStyleBackColor = true;
+            this.checkBox_IncludeEpisode.CheckedChanged += new System.EventHandler(this.CheckBox_IncludeEpisode_CheckedChanged);
+            // 
+            // checkBox_IncludeSeason
+            // 
+            this.checkBox_IncludeSeason.AutoSize = true;
+            this.checkBox_IncludeSeason.Checked = true;
+            this.checkBox_IncludeSeason.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_IncludeSeason.Location = new System.Drawing.Point(7, 0);
+            this.checkBox_IncludeSeason.Name = "checkBox_IncludeSeason";
+            this.checkBox_IncludeSeason.Size = new System.Drawing.Size(62, 17);
+            this.checkBox_IncludeSeason.TabIndex = 23;
+            this.checkBox_IncludeSeason.Text = "Season";
+            this.checkBox_IncludeSeason.UseVisualStyleBackColor = true;
+            this.checkBox_IncludeSeason.CheckedChanged += new System.EventHandler(this.CheckBox_IncludeSeason_CheckedChanged);
+            // 
+            // textBox_StartingEpisode
+            // 
+            this.textBox_StartingEpisode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBox_StartingEpisode.Location = new System.Drawing.Point(6, 82);
+            this.textBox_StartingEpisode.Name = "textBox_StartingEpisode";
+            this.textBox_StartingEpisode.Size = new System.Drawing.Size(79, 20);
+            this.textBox_StartingEpisode.TabIndex = 22;
+            this.textBox_StartingEpisode.Text = "1";
+            this.textBox_StartingEpisode.TextChanged += new System.EventHandler(this.TextBox_StartingEpisode_TextChanged);
             // 
             // textBox_SectionDivider
             // 
@@ -390,6 +411,26 @@
             this.textBox_SectionDivider.TabIndex = 1;
             this.textBox_SectionDivider.Text = " - ";
             this.textBox_SectionDivider.TextChanged += new System.EventHandler(this.TextBox_SectionDivider_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 66);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(84, 13);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "Starting Episode";
+            // 
+            // label7
+            // 
+            this.label7.AccessibleDescription = "";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 16);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(79, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Section Divider";
             // 
             // groupBox3
             // 
@@ -470,30 +511,11 @@
             this.label8.TabIndex = 19;
             this.label8.Text = "Season";
             // 
-            // textBox_StartingEpisode
-            // 
-            this.textBox_StartingEpisode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox_StartingEpisode.Location = new System.Drawing.Point(6, 82);
-            this.textBox_StartingEpisode.Name = "textBox_StartingEpisode";
-            this.textBox_StartingEpisode.Size = new System.Drawing.Size(79, 20);
-            this.textBox_StartingEpisode.TabIndex = 22;
-            this.textBox_StartingEpisode.Text = "1";
-            this.textBox_StartingEpisode.TextChanged += new System.EventHandler(this.TextBox_StartingEpisode_TextChanged);
-            // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 66);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(84, 13);
-            this.label9.TabIndex = 21;
-            this.label9.Text = "Starting Episode";
-            // 
             // groupBox4
             // 
             this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.textBox_Season_Suffix);
+            this.groupBox4.Controls.Add(this.checkBox_IncludeSeason);
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.textBox_Season_Prefix);
             this.groupBox4.Controls.Add(this.label12);
@@ -504,25 +526,23 @@
             this.groupBox4.Size = new System.Drawing.Size(267, 59);
             this.groupBox4.TabIndex = 21;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Season";
             // 
-            // textBox_Season_Digits
+            // textBox_Season_Suffix
             // 
-            this.textBox_Season_Digits.Location = new System.Drawing.Point(116, 32);
-            this.textBox_Season_Digits.Name = "textBox_Season_Digits";
-            this.textBox_Season_Digits.Size = new System.Drawing.Size(33, 20);
-            this.textBox_Season_Digits.TabIndex = 26;
-            this.textBox_Season_Digits.Text = "00";
-            this.textBox_Season_Digits.TextChanged += new System.EventHandler(this.TextBox_Season_Digits_TextChanged);
+            this.textBox_Season_Suffix.Location = new System.Drawing.Point(155, 32);
+            this.textBox_Season_Suffix.Name = "textBox_Season_Suffix";
+            this.textBox_Season_Suffix.Size = new System.Drawing.Size(104, 20);
+            this.textBox_Season_Suffix.TabIndex = 30;
+            this.textBox_Season_Suffix.TextChanged += new System.EventHandler(this.TextBox_Season_Suffix_TextChanged);
             // 
-            // label10
+            // label13
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(116, 16);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(33, 13);
-            this.label10.TabIndex = 25;
-            this.label10.Text = "Digits";
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(155, 16);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(33, 13);
+            this.label13.TabIndex = 29;
+            this.label13.Text = "Suffix";
             // 
             // textBox_Season_Prefix
             // 
@@ -542,26 +562,28 @@
             this.label12.TabIndex = 27;
             this.label12.Text = "Prefix";
             // 
-            // textBox_Season_Suffix
+            // textBox_Season_Digits
             // 
-            this.textBox_Season_Suffix.Location = new System.Drawing.Point(155, 32);
-            this.textBox_Season_Suffix.Name = "textBox_Season_Suffix";
-            this.textBox_Season_Suffix.Size = new System.Drawing.Size(104, 20);
-            this.textBox_Season_Suffix.TabIndex = 30;
-            this.textBox_Season_Suffix.TextChanged += new System.EventHandler(this.TextBox_Season_Suffix_TextChanged);
+            this.textBox_Season_Digits.Location = new System.Drawing.Point(116, 32);
+            this.textBox_Season_Digits.Name = "textBox_Season_Digits";
+            this.textBox_Season_Digits.Size = new System.Drawing.Size(33, 20);
+            this.textBox_Season_Digits.TabIndex = 26;
+            this.textBox_Season_Digits.Text = "00";
+            this.textBox_Season_Digits.TextChanged += new System.EventHandler(this.TextBox_Season_Digits_TextChanged);
             // 
-            // label13
+            // label10
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(155, 16);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(33, 13);
-            this.label13.TabIndex = 29;
-            this.label13.Text = "Suffix";
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(116, 16);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(33, 13);
+            this.label10.TabIndex = 25;
+            this.label10.Text = "Digits";
             // 
             // groupBox5
             // 
             this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox5.Controls.Add(this.checkBox_IncludeEpisode);
             this.groupBox5.Controls.Add(this.textBox_Episode_Suffix);
             this.groupBox5.Controls.Add(this.label14);
             this.groupBox5.Controls.Add(this.textBox_Episode_Prefix);
@@ -573,7 +595,6 @@
             this.groupBox5.Size = new System.Drawing.Size(267, 59);
             this.groupBox5.TabIndex = 31;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Episode";
             // 
             // textBox_Episode_Suffix
             // 
@@ -631,7 +652,7 @@
             // button_Refresh
             // 
             this.button_Refresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_Refresh.Location = new System.Drawing.Point(954, 905);
+            this.button_Refresh.Location = new System.Drawing.Point(954, 910);
             this.button_Refresh.Name = "button_Refresh";
             this.button_Refresh.Size = new System.Drawing.Size(183, 31);
             this.button_Refresh.TabIndex = 32;
@@ -639,35 +660,24 @@
             this.button_Refresh.UseVisualStyleBackColor = true;
             this.button_Refresh.Click += new System.EventHandler(this.Button_Refresh_Click);
             // 
-            // checkBox_IncludeSeason
+            // pictureBox1
             // 
-            this.checkBox_IncludeSeason.AutoSize = true;
-            this.checkBox_IncludeSeason.Location = new System.Drawing.Point(6, 119);
-            this.checkBox_IncludeSeason.Name = "checkBox_IncludeSeason";
-            this.checkBox_IncludeSeason.Size = new System.Drawing.Size(140, 17);
-            this.checkBox_IncludeSeason.TabIndex = 23;
-            this.checkBox_IncludeSeason.Text = "Include Season Number";
-            this.checkBox_IncludeSeason.UseVisualStyleBackColor = true;
-            this.checkBox_IncludeSeason.CheckedChanged += new System.EventHandler(this.CheckBox_IncludeSeason_CheckedChanged);
-            // 
-            // checkBox_IncludeEpisode
-            // 
-            this.checkBox_IncludeEpisode.AutoSize = true;
-            this.checkBox_IncludeEpisode.Location = new System.Drawing.Point(6, 142);
-            this.checkBox_IncludeEpisode.Name = "checkBox_IncludeEpisode";
-            this.checkBox_IncludeEpisode.Size = new System.Drawing.Size(142, 17);
-            this.checkBox_IncludeEpisode.TabIndex = 24;
-            this.checkBox_IncludeEpisode.Text = "Include Episode Number";
-            this.checkBox_IncludeEpisode.UseVisualStyleBackColor = true;
-            this.checkBox_IncludeEpisode.CheckedChanged += new System.EventHandler(this.CheckBox_IncludeEpisode_CheckedChanged);
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Location = new System.Drawing.Point(450, 627);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(225, 309);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1150, 1014);
-            this.Controls.Add(this.button_Refresh);
             this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.button_Refresh);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.textBox_Season);
             this.Controls.Add(this.label8);
@@ -697,7 +707,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MAL Renamer";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -708,6 +717,7 @@
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

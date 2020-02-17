@@ -323,6 +323,33 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void DataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            string title = "";
+            if (radioButton_Title_Title.Checked)
+            {
+                title = textBox_Title_Default.Text + textBox_SectionDivider.Text;
+            }
+            else if (radioButton_Title_En.Checked)
+            {
+                title = textBox_Title_English.Text + textBox_SectionDivider.Text;
+            }
+            else if (radioButton_Title_Jp.Checked)
+            {
+                title = textBox_Title_Japanese.Text + textBox_SectionDivider.Text;
+            }
+
+            using (var editForm = new Form_CustomEdit(fileEntries[e.RowIndex], title))
+            {
+                var result = editForm.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    fileEntries[e.RowIndex] = editForm.newFilename;
+                    UpdateGrid();
+                }
+            }
+        }
+
         private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             UpdateGrid();
@@ -445,11 +472,21 @@ namespace WindowsFormsApp1
 
         private void CheckBox_IncludeSeason_CheckedChanged(object sender, EventArgs e)
         {
+            bool enabled = checkBox_IncludeSeason.Checked;
+            textBox_Season_Prefix.Enabled = enabled;
+            textBox_Season_Digits.Enabled = enabled;
+            textBox_Season_Suffix.Enabled = enabled;
+
             UpdateGrid();
         }
 
         private void CheckBox_IncludeEpisode_CheckedChanged(object sender, EventArgs e)
         {
+            bool enabled = checkBox_IncludeEpisode.Checked;
+            textBox_Episode_Prefix.Enabled = enabled;
+            textBox_Episode_Digits.Enabled = enabled;
+            textBox_Episode_Suffix.Enabled = enabled;
+
             UpdateGrid();
         }
     }
