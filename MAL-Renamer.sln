@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28917.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAL-Renamer", "WindowsFormsApp1\MAL-Renamer.csproj", "{C0C50F41-A64C-4A3F-9D3E-A5EB29DE2533}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAL-Renamer", "MAL-Renamer\MAL-Renamer.csproj", "{C0C50F41-A64C-4A3F-9D3E-A5EB29DE2533}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
