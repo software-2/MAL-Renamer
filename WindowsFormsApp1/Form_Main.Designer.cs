@@ -55,12 +55,12 @@
             this.textBox_Title_Japanese = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.checkBox_IncludeEpisode = new System.Windows.Forms.CheckBox();
-            this.checkBox_IncludeSeason = new System.Windows.Forms.CheckBox();
             this.textBox_StartingEpisode = new System.Windows.Forms.TextBox();
             this.textBox_SectionDivider = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.checkBox_IncludeEpisode = new System.Windows.Forms.CheckBox();
+            this.checkBox_IncludeSeason = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.radioButton_Episodes_None = new System.Windows.Forms.RadioButton();
             this.radioButton_Episodes_Jp = new System.Windows.Forms.RadioButton();
@@ -86,16 +86,16 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.presetsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.seriesS00E00ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.seriesS00E00EpisodeTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.seriesS00E00ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.seriesS00E00EpisodeTitleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.episodeTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.projectGitHubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportABugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.seriesS00E00EpisodeTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.seriesS00E00ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.episodeTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.seriesS00E00EpisodeTitleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.seriesS00E00ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -215,7 +215,7 @@
             // button_Rename
             // 
             this.button_Rename.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_Rename.Enabled = false;
+            this.button_Rename.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_Rename.Location = new System.Drawing.Point(954, 946);
             this.button_Rename.Name = "button_Rename";
             this.button_Rename.Size = new System.Drawing.Size(183, 55);
@@ -379,32 +379,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Advanced";
             // 
-            // checkBox_IncludeEpisode
-            // 
-            this.checkBox_IncludeEpisode.AutoSize = true;
-            this.checkBox_IncludeEpisode.Checked = true;
-            this.checkBox_IncludeEpisode.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_IncludeEpisode.Location = new System.Drawing.Point(7, 0);
-            this.checkBox_IncludeEpisode.Name = "checkBox_IncludeEpisode";
-            this.checkBox_IncludeEpisode.Size = new System.Drawing.Size(64, 17);
-            this.checkBox_IncludeEpisode.TabIndex = 24;
-            this.checkBox_IncludeEpisode.Text = "Episode";
-            this.checkBox_IncludeEpisode.UseVisualStyleBackColor = true;
-            this.checkBox_IncludeEpisode.CheckedChanged += new System.EventHandler(this.CheckBox_IncludeEpisode_CheckedChanged);
-            // 
-            // checkBox_IncludeSeason
-            // 
-            this.checkBox_IncludeSeason.AutoSize = true;
-            this.checkBox_IncludeSeason.Checked = true;
-            this.checkBox_IncludeSeason.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_IncludeSeason.Location = new System.Drawing.Point(7, 0);
-            this.checkBox_IncludeSeason.Name = "checkBox_IncludeSeason";
-            this.checkBox_IncludeSeason.Size = new System.Drawing.Size(62, 17);
-            this.checkBox_IncludeSeason.TabIndex = 23;
-            this.checkBox_IncludeSeason.Text = "Season";
-            this.checkBox_IncludeSeason.UseVisualStyleBackColor = true;
-            this.checkBox_IncludeSeason.CheckedChanged += new System.EventHandler(this.CheckBox_IncludeSeason_CheckedChanged);
-            // 
             // textBox_StartingEpisode
             // 
             this.textBox_StartingEpisode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -444,6 +418,32 @@
             this.label7.Size = new System.Drawing.Size(79, 13);
             this.label7.TabIndex = 0;
             this.label7.Text = "Section Divider";
+            // 
+            // checkBox_IncludeEpisode
+            // 
+            this.checkBox_IncludeEpisode.AutoSize = true;
+            this.checkBox_IncludeEpisode.Checked = true;
+            this.checkBox_IncludeEpisode.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_IncludeEpisode.Location = new System.Drawing.Point(7, 0);
+            this.checkBox_IncludeEpisode.Name = "checkBox_IncludeEpisode";
+            this.checkBox_IncludeEpisode.Size = new System.Drawing.Size(64, 17);
+            this.checkBox_IncludeEpisode.TabIndex = 24;
+            this.checkBox_IncludeEpisode.Text = "Episode";
+            this.checkBox_IncludeEpisode.UseVisualStyleBackColor = true;
+            this.checkBox_IncludeEpisode.CheckedChanged += new System.EventHandler(this.CheckBox_IncludeEpisode_CheckedChanged);
+            // 
+            // checkBox_IncludeSeason
+            // 
+            this.checkBox_IncludeSeason.AutoSize = true;
+            this.checkBox_IncludeSeason.Checked = true;
+            this.checkBox_IncludeSeason.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_IncludeSeason.Location = new System.Drawing.Point(7, 0);
+            this.checkBox_IncludeSeason.Name = "checkBox_IncludeSeason";
+            this.checkBox_IncludeSeason.Size = new System.Drawing.Size(62, 17);
+            this.checkBox_IncludeSeason.TabIndex = 23;
+            this.checkBox_IncludeSeason.Text = "Season";
+            this.checkBox_IncludeSeason.UseVisualStyleBackColor = true;
+            this.checkBox_IncludeSeason.CheckedChanged += new System.EventHandler(this.CheckBox_IncludeSeason_CheckedChanged);
             // 
             // groupBox3
             // 
@@ -704,6 +704,13 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
             // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
+            // 
             // presetsToolStripMenuItem
             // 
             this.presetsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -715,6 +722,41 @@
             this.presetsToolStripMenuItem.Name = "presetsToolStripMenuItem";
             this.presetsToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.presetsToolStripMenuItem.Text = "&Presets";
+            // 
+            // seriesS00E00ToolStripMenuItem
+            // 
+            this.seriesS00E00ToolStripMenuItem.Name = "seriesS00E00ToolStripMenuItem";
+            this.seriesS00E00ToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.seriesS00E00ToolStripMenuItem.Text = "Series - S00E00";
+            this.seriesS00E00ToolStripMenuItem.Click += new System.EventHandler(this.SeriesS00E00ToolStripMenuItem_Click);
+            // 
+            // seriesS00E00EpisodeTitleToolStripMenuItem
+            // 
+            this.seriesS00E00EpisodeTitleToolStripMenuItem.Name = "seriesS00E00EpisodeTitleToolStripMenuItem";
+            this.seriesS00E00EpisodeTitleToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.seriesS00E00EpisodeTitleToolStripMenuItem.Text = "Series - S00E00 - Episode Title";
+            this.seriesS00E00EpisodeTitleToolStripMenuItem.Click += new System.EventHandler(this.SeriesS00E00EpisodeTitleToolStripMenuItem_Click);
+            // 
+            // seriesS00E00ToolStripMenuItem1
+            // 
+            this.seriesS00E00ToolStripMenuItem1.Name = "seriesS00E00ToolStripMenuItem1";
+            this.seriesS00E00ToolStripMenuItem1.Size = new System.Drawing.Size(229, 22);
+            this.seriesS00E00ToolStripMenuItem1.Text = "Series [S00E00]";
+            this.seriesS00E00ToolStripMenuItem1.Click += new System.EventHandler(this.SeriesS00E00ToolStripMenuItem1_Click);
+            // 
+            // seriesS00E00EpisodeTitleToolStripMenuItem1
+            // 
+            this.seriesS00E00EpisodeTitleToolStripMenuItem1.Name = "seriesS00E00EpisodeTitleToolStripMenuItem1";
+            this.seriesS00E00EpisodeTitleToolStripMenuItem1.Size = new System.Drawing.Size(229, 22);
+            this.seriesS00E00EpisodeTitleToolStripMenuItem1.Text = "Series [S00E00] Episode Title";
+            this.seriesS00E00EpisodeTitleToolStripMenuItem1.Click += new System.EventHandler(this.SeriesS00E00EpisodeTitleToolStripMenuItem1_Click);
+            // 
+            // episodeTitleToolStripMenuItem
+            // 
+            this.episodeTitleToolStripMenuItem.Name = "episodeTitleToolStripMenuItem";
+            this.episodeTitleToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.episodeTitleToolStripMenuItem.Text = "00 - Episode Title";
+            this.episodeTitleToolStripMenuItem.Click += new System.EventHandler(this.EpisodeTitleToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -728,58 +770,16 @@
             // projectGitHubToolStripMenuItem
             // 
             this.projectGitHubToolStripMenuItem.Name = "projectGitHubToolStripMenuItem";
-            this.projectGitHubToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.projectGitHubToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.projectGitHubToolStripMenuItem.Text = "Project GitHub";
             this.projectGitHubToolStripMenuItem.Click += new System.EventHandler(this.ProjectGitHubToolStripMenuItem_Click);
             // 
             // reportABugToolStripMenuItem
             // 
             this.reportABugToolStripMenuItem.Name = "reportABugToolStripMenuItem";
-            this.reportABugToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reportABugToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.reportABugToolStripMenuItem.Text = "Report A Bug";
             this.reportABugToolStripMenuItem.Click += new System.EventHandler(this.ReportABugToolStripMenuItem_Click);
-            // 
-            // seriesS00E00EpisodeTitleToolStripMenuItem
-            // 
-            this.seriesS00E00EpisodeTitleToolStripMenuItem.Name = "seriesS00E00EpisodeTitleToolStripMenuItem";
-            this.seriesS00E00EpisodeTitleToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
-            this.seriesS00E00EpisodeTitleToolStripMenuItem.Text = "Series - S00E00 - Episode Title";
-            this.seriesS00E00EpisodeTitleToolStripMenuItem.Click += new System.EventHandler(this.SeriesS00E00EpisodeTitleToolStripMenuItem_Click);
-            // 
-            // seriesS00E00ToolStripMenuItem
-            // 
-            this.seriesS00E00ToolStripMenuItem.Name = "seriesS00E00ToolStripMenuItem";
-            this.seriesS00E00ToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
-            this.seriesS00E00ToolStripMenuItem.Text = "Series - S00E00";
-            this.seriesS00E00ToolStripMenuItem.Click += new System.EventHandler(this.SeriesS00E00ToolStripMenuItem_Click);
-            // 
-            // episodeTitleToolStripMenuItem
-            // 
-            this.episodeTitleToolStripMenuItem.Name = "episodeTitleToolStripMenuItem";
-            this.episodeTitleToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
-            this.episodeTitleToolStripMenuItem.Text = "00 - Episode Title";
-            this.episodeTitleToolStripMenuItem.Click += new System.EventHandler(this.EpisodeTitleToolStripMenuItem_Click);
-            // 
-            // seriesS00E00EpisodeTitleToolStripMenuItem1
-            // 
-            this.seriesS00E00EpisodeTitleToolStripMenuItem1.Name = "seriesS00E00EpisodeTitleToolStripMenuItem1";
-            this.seriesS00E00EpisodeTitleToolStripMenuItem1.Size = new System.Drawing.Size(229, 22);
-            this.seriesS00E00EpisodeTitleToolStripMenuItem1.Text = "Series [S00E00] Episode Title";
-            this.seriesS00E00EpisodeTitleToolStripMenuItem1.Click += new System.EventHandler(this.SeriesS00E00EpisodeTitleToolStripMenuItem1_Click);
-            // 
-            // seriesS00E00ToolStripMenuItem1
-            // 
-            this.seriesS00E00ToolStripMenuItem1.Name = "seriesS00E00ToolStripMenuItem1";
-            this.seriesS00E00ToolStripMenuItem1.Size = new System.Drawing.Size(229, 22);
-            this.seriesS00E00ToolStripMenuItem1.Text = "Series [S00E00]";
-            this.seriesS00E00ToolStripMenuItem1.Click += new System.EventHandler(this.SeriesS00E00ToolStripMenuItem1_Click);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exitToolStripMenuItem.Text = "E&xit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
             // Form_Main
             // 

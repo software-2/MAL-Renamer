@@ -75,15 +75,58 @@ namespace WindowsFormsApp1
                 episodeTitle = textBox_SectionDivider.Text + episodes[index - 1].TitleJP;
             }
 
-
             return title + season + episode + episodeTitle + fileExtension;
-
         }
 
         private bool isKnownVideoFile(string extension)
         {
             string[] formats = new [] { ".WEBM", ".MKV", ".MPG", ".MP2", ".MPEG", ".MPE", ".MPV", ".OGG", ".MP4", ".M4P", ".M4V", ".AVI", ".WMV", ".MOV", ".QT", ".FLV", ".SWF", ".AVCHD"};
             return formats.Contains(extension, StringComparer.OrdinalIgnoreCase);
+        }
+
+        private ValidationState SafetyCheck()
+        {
+            if (fileEntries == null || fileEntries.Count() == 0)
+            {
+                if (textBox_SourceFolder.TextLength == 0)
+                {
+                    return ValidationState.SpecifyFolder;
+                }
+                return ValidationState.NoFilesPresent;
+            }
+
+            if (episodes == null || episodes.Count == 0)
+            {
+                return ValidationState.NoEpisodes;
+            }
+
+            int fileEntryCount = 0;
+            int enabledRowCount = 0;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells[0].Value == null || fileEntries.Count() <= fileEntryCount)
+                {
+                    continue;
+                }
+                if (row.Cells[0].Value.ToString() == true.ToString())
+                {
+                    enabledRowCount++;
+                }
+
+                ++fileEntryCount;
+            }
+
+            if (enabledRowCount > episodes.Count + (1 - int.Parse(textBox_StartingEpisode.Text)))
+            {
+                return ValidationState.TooManyFiles;
+            }
+
+            if (enabledRowCount < episodes.Count + (1 - int.Parse(textBox_StartingEpisode.Text)))
+            {
+                return ValidationState.TooManyEpisodes;
+            }
+
+            return ValidationState.Good;
         }
 
         private void UpdateGrid()
@@ -112,9 +155,18 @@ namespace WindowsFormsApp1
                 ++fileEntryCount;
             }
 
-            if (episodes != null)
+            var valid = SafetyCheck();
+            if (valid.Type == ValidationState.ErrorType.NoIssues)
+            { 
+                button_Rename.BackColor = SystemColors.Control;
+            }
+            else if (valid.Type == ValidationState.ErrorType.Warning)
             {
-                button_Rename.Enabled = enabledRowCount == episodes.Count;
+                button_Rename.BackColor = Color.LemonChiffon;
+            }
+            else
+            {
+                button_Rename.BackColor = Color.LightSalmon;
             }
         }
 
@@ -169,7 +221,6 @@ namespace WindowsFormsApp1
             sortedCollection.OrderBy(x => x, new NaturalComparer());
             fileEntries = sortedCollection.ToArray();
 
-
             dataGridView1.Rows.Clear();
             foreach (string fileName in fileEntries)
             {
@@ -201,18 +252,32 @@ namespace WindowsFormsApp1
         {
             public override int Compare(string x, string y)
             {
-                if (x == y) return 0;
+                if (x == y)
+                {
+                    return 0;
+                }
 
                 string[] x1, y1;
                 x1 = Regex.Split(x.Replace(" ", ""), "([0-9]+)");
                 y1 = Regex.Split(y.Replace(" ", ""), "([0-9]+)");
 
                 for (int i = 0; i < x1.Length && i < y1.Length; i++)
+                {
                     if (x1[i] != y1[i]) return PartCompare(x1[i], y1[i]);
+                }
 
-                if (y1.Length > x1.Length) return 1;
-                else if (x1.Length > y1.Length) return -1;
-                else return 0;
+                if (y1.Length > x1.Length)
+                {
+                    return 1;
+                }
+                else if (x1.Length > y1.Length)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return 0;
+                }
             }
 
             private static int PartCompare(string left, string right)
@@ -220,7 +285,9 @@ namespace WindowsFormsApp1
                 int x, y;
 
                 if (int.TryParse(left, out x) && int.TryParse(right, out y))
+                {
                     return x.CompareTo(y);
+                }
 
                 return left.CompareTo(right);
             }
@@ -251,9 +318,70 @@ namespace WindowsFormsApp1
             _ = GetAnimeInfoAsync();
         }
 
+
+        private bool ValidateFilesAccess()
+        {
+            int fileEntryCount = 0;
+            int episodeCount = -1;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells[0].Value == null)
+                {
+                    continue;
+                }
+                if (row.Cells[0].Value.ToString() == true.ToString())
+                {
+                    episodeCount++;
+                    if (episodes.Count > episodeCount)
+                    {
+                        try
+                        {
+                            using (var fs = File.Open(fileEntries[fileEntryCount], FileMode.Open))
+                            {
+                                if (!fs.CanWrite)
+                                {
+                                    return false;
+                                }
+                            }
+                        }
+                        catch
+                        {
+                            return false;
+                        }
+                    }
+
+                }
+
+                ++fileEntryCount;
+            }
+
+            return true;
+        }
+
         private void Button_Rename_Click(object sender, EventArgs e)
         {
-            button_Rename.Enabled = false;
+            var valid = SafetyCheck();
+            if (valid.Type == ValidationState.ErrorType.Warning)
+            {
+                var result = MessageBox.Show(valid.Message, "Warning! Proceed?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result != DialogResult.Yes)
+                {
+                    return;
+                }
+            }
+            else if (valid.Type == ValidationState.ErrorType.Error)
+            {
+                MessageBox.Show(valid.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!ValidateFilesAccess())
+            {
+                MessageBox.Show("Error! Didn't have write access to one or more files! Activating secret technique of running away! (No files have been modified)", 
+                    "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
 
             int fileEntryCount = 0;
             int episodeCount = -1;
@@ -344,8 +472,7 @@ namespace WindowsFormsApp1
                 var result = editForm.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    fileEntries[e.RowIndex] = editForm.newFilename;
-                    UpdateGrid();
+                    RefreshSourceFiles();
                 }
             }
         }

@@ -34,7 +34,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.loading1;
+            this.BackgroundImage = global::MALRenamer.Properties.Resources.loading1;
             this.ClientSize = new System.Drawing.Size(634, 347);
             this.ControlBox = false;
             this.DoubleBuffered = true;

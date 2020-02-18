@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ValidationState.cs" />
     <Compile Include="Form_CustomEdit.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -18,6 +18,32 @@ namespace WindowsFormsApp1
 
         public string newFilename { get; set; }
 
+        private void doRename()
+        {
+            var newName = textBox_New.Text;
+            var newPath = originalFilename.Replace(Path.GetFileName(originalFilename), newName);
+
+            try
+            {
+                File.Move(originalFilename, newPath);
+            }
+            catch
+            {
+                var result = MessageBox.Show("Error! Couldn't rename the file!", "Error!", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                if (result == DialogResult.Retry)
+                {
+                    doRename();
+                }
+                this.DialogResult = DialogResult.Abort;
+                Close();
+            }
+
+            this.DialogResult = DialogResult.OK;
+            this.newFilename = newPath;
+
+            Close();
+        }
+
         private string generateNewFilename(string custom)
         {
             return prefix +
@@ -39,20 +65,30 @@ namespace WindowsFormsApp1
 
         private void Button_Rename_Click(object sender, EventArgs e)
         {
-            var newName = textBox_New.Text;
-            var newPath = originalFilename.Replace(Path.GetFileName(originalFilename), newName);
-
-            File.Move(originalFilename, newPath);
-
-            this.DialogResult = DialogResult.OK;
-            this.newFilename = newPath;
-
-            Close();
+            doRename();
         }
 
         private void TextBox_Custom_TextChanged(object sender, EventArgs e)
         {
             textBox_New.Text = generateNewFilename(textBox_Custom.Text);
+        }
+
+        private void TextBox_Custom_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                doRename();
+            }
+        }
+
+        private void TextBox_New_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                doRename();
+            }
         }
     }
 }
