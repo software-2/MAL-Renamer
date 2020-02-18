@@ -489,5 +489,100 @@ namespace WindowsFormsApp1
 
             UpdateGrid();
         }
+
+        private void SeriesS00E00ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBox_SectionDivider.Text = " - ";
+            radioButton_Title_Title.Checked = true;
+            radioButton_Episodes_None.Checked = true;
+            checkBox_IncludeSeason.Checked = true;
+            textBox_Season_Prefix.Text = "S";
+            textBox_Season_Digits.Text = "00";
+            textBox_Season_Suffix.Text = "";
+            checkBox_IncludeEpisode.Checked = true;
+            textBox_Episode_Prefix.Text = "E";
+            textBox_Episode_Digits.Text = "00";
+            textBox_Episode_Suffix.Text = "";
+            textBox_StartingEpisode.Text = "1";
+        }
+
+        private void SeriesS00E00EpisodeTitleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBox_SectionDivider.Text = " - ";
+            radioButton_Title_Title.Checked = true;
+            radioButton_Episodes_Default.Checked = true;
+            checkBox_IncludeSeason.Checked = true;
+            textBox_Season_Prefix.Text = "S";
+            textBox_Season_Digits.Text = "00";
+            textBox_Season_Suffix.Text = "";
+            checkBox_IncludeEpisode.Checked = true;
+            textBox_Episode_Prefix.Text = "E";
+            textBox_Episode_Digits.Text = "00";
+            textBox_Episode_Suffix.Text = "";
+            textBox_StartingEpisode.Text = "1";
+        }
+
+        private void SeriesS00E00ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            textBox_SectionDivider.Text = " ";
+            radioButton_Title_Title.Checked = true;
+            radioButton_Episodes_None.Checked = true;
+            checkBox_IncludeSeason.Checked = true;
+            textBox_Season_Prefix.Text = "[S";
+            textBox_Season_Digits.Text = "00";
+            textBox_Season_Suffix.Text = "";
+            checkBox_IncludeEpisode.Checked = true;
+            textBox_Episode_Prefix.Text = "E";
+            textBox_Episode_Digits.Text = "00";
+            textBox_Episode_Suffix.Text = "]";
+            textBox_StartingEpisode.Text = "1";
+        }
+
+        private void SeriesS00E00EpisodeTitleToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            textBox_SectionDivider.Text = " ";
+            radioButton_Title_Title.Checked = true;
+            radioButton_Episodes_Default.Checked = true;
+            checkBox_IncludeSeason.Checked = true;
+            textBox_Season_Prefix.Text = "[S";
+            textBox_Season_Digits.Text = "00";
+            textBox_Season_Suffix.Text = "";
+            checkBox_IncludeEpisode.Checked = true;
+            textBox_Episode_Prefix.Text = "E";
+            textBox_Episode_Digits.Text = "00";
+            textBox_Episode_Suffix.Text = "]";
+            textBox_StartingEpisode.Text = "1";
+        }
+
+        private void EpisodeTitleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBox_SectionDivider.Text = " - ";
+            radioButton_Title_None.Checked = true;
+            radioButton_Episodes_Default.Checked = true;
+            checkBox_IncludeSeason.Checked = false;
+            textBox_Season_Prefix.Text = "S";
+            textBox_Season_Digits.Text = "00";
+            textBox_Season_Suffix.Text = "";
+            checkBox_IncludeEpisode.Checked = true;
+            textBox_Episode_Prefix.Text = "";
+            textBox_Episode_Digits.Text = "00";
+            textBox_Episode_Suffix.Text = "";
+            textBox_StartingEpisode.Text = "1";
+        }
+
+        private void ProjectGitHubToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/software-2/MAL-Renamer");
+        }
+
+        private void ReportABugToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/software-2/MAL-Renamer/issues"); 
+        }
+
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

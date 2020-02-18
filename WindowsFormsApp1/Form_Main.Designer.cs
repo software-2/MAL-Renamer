@@ -84,6 +84,18 @@
             this.label16 = new System.Windows.Forms.Label();
             this.button_Refresh = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.presetsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.projectGitHubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportABugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.seriesS00E00EpisodeTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.seriesS00E00ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.episodeTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.seriesS00E00EpisodeTitleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.seriesS00E00ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -91,6 +103,7 @@
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -671,6 +684,103 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.presetsToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1150, 24);
+            this.menuStrip1.TabIndex = 33;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "&File";
+            // 
+            // presetsToolStripMenuItem
+            // 
+            this.presetsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.seriesS00E00ToolStripMenuItem,
+            this.seriesS00E00EpisodeTitleToolStripMenuItem,
+            this.seriesS00E00ToolStripMenuItem1,
+            this.seriesS00E00EpisodeTitleToolStripMenuItem1,
+            this.episodeTitleToolStripMenuItem});
+            this.presetsToolStripMenuItem.Name = "presetsToolStripMenuItem";
+            this.presetsToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.presetsToolStripMenuItem.Text = "&Presets";
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.projectGitHubToolStripMenuItem,
+            this.reportABugToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "&Help";
+            // 
+            // projectGitHubToolStripMenuItem
+            // 
+            this.projectGitHubToolStripMenuItem.Name = "projectGitHubToolStripMenuItem";
+            this.projectGitHubToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.projectGitHubToolStripMenuItem.Text = "Project GitHub";
+            this.projectGitHubToolStripMenuItem.Click += new System.EventHandler(this.ProjectGitHubToolStripMenuItem_Click);
+            // 
+            // reportABugToolStripMenuItem
+            // 
+            this.reportABugToolStripMenuItem.Name = "reportABugToolStripMenuItem";
+            this.reportABugToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reportABugToolStripMenuItem.Text = "Report A Bug";
+            this.reportABugToolStripMenuItem.Click += new System.EventHandler(this.ReportABugToolStripMenuItem_Click);
+            // 
+            // seriesS00E00EpisodeTitleToolStripMenuItem
+            // 
+            this.seriesS00E00EpisodeTitleToolStripMenuItem.Name = "seriesS00E00EpisodeTitleToolStripMenuItem";
+            this.seriesS00E00EpisodeTitleToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.seriesS00E00EpisodeTitleToolStripMenuItem.Text = "Series - S00E00 - Episode Title";
+            this.seriesS00E00EpisodeTitleToolStripMenuItem.Click += new System.EventHandler(this.SeriesS00E00EpisodeTitleToolStripMenuItem_Click);
+            // 
+            // seriesS00E00ToolStripMenuItem
+            // 
+            this.seriesS00E00ToolStripMenuItem.Name = "seriesS00E00ToolStripMenuItem";
+            this.seriesS00E00ToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.seriesS00E00ToolStripMenuItem.Text = "Series - S00E00";
+            this.seriesS00E00ToolStripMenuItem.Click += new System.EventHandler(this.SeriesS00E00ToolStripMenuItem_Click);
+            // 
+            // episodeTitleToolStripMenuItem
+            // 
+            this.episodeTitleToolStripMenuItem.Name = "episodeTitleToolStripMenuItem";
+            this.episodeTitleToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.episodeTitleToolStripMenuItem.Text = "00 - Episode Title";
+            this.episodeTitleToolStripMenuItem.Click += new System.EventHandler(this.EpisodeTitleToolStripMenuItem_Click);
+            // 
+            // seriesS00E00EpisodeTitleToolStripMenuItem1
+            // 
+            this.seriesS00E00EpisodeTitleToolStripMenuItem1.Name = "seriesS00E00EpisodeTitleToolStripMenuItem1";
+            this.seriesS00E00EpisodeTitleToolStripMenuItem1.Size = new System.Drawing.Size(229, 22);
+            this.seriesS00E00EpisodeTitleToolStripMenuItem1.Text = "Series [S00E00] Episode Title";
+            this.seriesS00E00EpisodeTitleToolStripMenuItem1.Click += new System.EventHandler(this.SeriesS00E00EpisodeTitleToolStripMenuItem1_Click);
+            // 
+            // seriesS00E00ToolStripMenuItem1
+            // 
+            this.seriesS00E00ToolStripMenuItem1.Name = "seriesS00E00ToolStripMenuItem1";
+            this.seriesS00E00ToolStripMenuItem1.Size = new System.Drawing.Size(229, 22);
+            this.seriesS00E00ToolStripMenuItem1.Text = "Series [S00E00]";
+            this.seriesS00E00ToolStripMenuItem1.Click += new System.EventHandler(this.SeriesS00E00ToolStripMenuItem1_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -701,7 +811,9 @@
             this.Controls.Add(this.textBox_SourceFolder);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1166, 500);
             this.Name = "Form_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -718,6 +830,8 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -780,6 +894,18 @@
         private System.Windows.Forms.Button button_Refresh;
         private System.Windows.Forms.CheckBox checkBox_IncludeEpisode;
         private System.Windows.Forms.CheckBox checkBox_IncludeSeason;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem presetsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem seriesS00E00ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem seriesS00E00EpisodeTitleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem seriesS00E00ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem seriesS00E00EpisodeTitleToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem episodeTitleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem projectGitHubToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportABugToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }
 
