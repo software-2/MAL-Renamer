@@ -189,7 +189,6 @@
             this.textBox_AnimeID.Name = "textBox_AnimeID";
             this.textBox_AnimeID.Size = new System.Drawing.Size(61, 20);
             this.textBox_AnimeID.TabIndex = 5;
-            this.textBox_AnimeID.Text = "6547";
             this.textBox_AnimeID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_AnimeID_KeyPress);
             // 
             // label2
@@ -772,21 +771,21 @@
             // projectGitHubToolStripMenuItem
             // 
             this.projectGitHubToolStripMenuItem.Name = "projectGitHubToolStripMenuItem";
-            this.projectGitHubToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.projectGitHubToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.projectGitHubToolStripMenuItem.Text = "Project GitHub";
             this.projectGitHubToolStripMenuItem.Click += new System.EventHandler(this.ProjectGitHubToolStripMenuItem_Click);
             // 
             // reportABugToolStripMenuItem
             // 
             this.reportABugToolStripMenuItem.Name = "reportABugToolStripMenuItem";
-            this.reportABugToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reportABugToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.reportABugToolStripMenuItem.Text = "Report A Bug";
             this.reportABugToolStripMenuItem.Click += new System.EventHandler(this.ReportABugToolStripMenuItem_Click);
             // 
             // checkForUpdatesToolStripMenuItem
             // 
             this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
-            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.checkForUpdatesToolStripMenuItem.Text = "Check For &Updates";
             this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.CheckForUpdatesToolStripMenuItem_Click);
             // 
