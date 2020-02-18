@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Collections;
 using System.Text.RegularExpressions;
+using System.Net;
 
 namespace WindowsFormsApp1
 {
@@ -710,6 +711,36 @@ namespace WindowsFormsApp1
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void CheckForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var version = (new WebClient()).DownloadString("https://github.com/software-2/MAL-Renamer/raw/master/latestversion.txt");
+            try
+            {
+                var parsed = Version.Parse(version);
+                
+                if (parsed.CompareTo(new Version(1, 0, 0)) != 0)
+                {
+                    var result = MessageBox.Show("There is a new version! Want to go get it?", "New Version!", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if (result == DialogResult.Yes)
+                    {
+                        System.Diagnostics.Process.Start("https://github.com/software-2/MAL-Renamer/releases");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("You expected an update, but it was me! Dio!", "Up To Date!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch
+            {
+                var result = MessageBox.Show("Sorry, I couldn't find the version number. Do you want to go to the website to check?", "Error!", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (result == DialogResult.Yes)
+                {
+                    System.Diagnostics.Process.Start("https://github.com/software-2/MAL-Renamer/releases"); 
+                }
+            }
         }
     }
 }

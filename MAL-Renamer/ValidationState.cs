@@ -11,7 +11,7 @@ namespace WindowsFormsApp1
         private ValidationState(ErrorType type, string message) { Type = type; Message = message; }
 
         public string Message { get; }
-        public ErrorType Type { get;  }
+        public ErrorType Type { get; }
 
         public enum ErrorType : ushort
         {
