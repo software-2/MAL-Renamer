@@ -12,7 +12,7 @@ using System.Collections;
 using System.Text.RegularExpressions;
 using System.Net;
 
-namespace WindowsFormsApp1
+namespace MALRenamer
 {
     public partial class Form_Main : Form
     {

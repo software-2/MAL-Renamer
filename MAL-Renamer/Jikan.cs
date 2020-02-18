@@ -7,7 +7,7 @@ using RestSharp;
 using RestSharp.Authenticators;
 using Newtonsoft.Json;
 
-namespace WindowsFormsApp1
+namespace MALRenamer
 {
     static class Jikan
     {

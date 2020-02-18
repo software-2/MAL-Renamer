@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace MALRenamer
 {
     partial class Form_Loading
     {
