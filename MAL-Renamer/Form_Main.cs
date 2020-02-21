@@ -76,10 +76,20 @@ namespace MALRenamer
                 episodeTitle = textBox_SectionDivider.Text + episodes[index - 1].TitleJP;
             }
 
-            return title + season + episode + episodeTitle + fileExtension;
+            return RemoveInvalidChars(title + season + episode + episodeTitle) + fileExtension;
         }
 
-        private bool isKnownVideoFile(string extension)
+        private string RemoveInvalidChars(string original)
+        {
+            string[] invalidChars = new string[] { "<", ">", ":", "\"", "/", "\\", "|", "?", "*" };
+            foreach (string invalidChar in invalidChars)
+            {
+                original = original.Replace(invalidChar, "");
+            }
+            return original;
+        }
+
+        private bool IsKnownVideoFile(string extension)
         {
             string[] formats = new [] { ".WEBM", ".MKV", ".MPG", ".MP2", ".MPEG", ".MPE", ".MPV", ".OGG", ".MP4", ".M4P", ".M4V", ".AVI", ".WMV", ".MOV", ".QT", ".FLV", ".SWF", ".AVCHD"};
             return formats.Contains(extension, StringComparer.OrdinalIgnoreCase);
@@ -225,7 +235,7 @@ namespace MALRenamer
             dataGridView1.Rows.Clear();
             foreach (string fileName in fileEntries)
             {
-                bool enabled = isKnownVideoFile(Path.GetExtension(fileName));
+                bool enabled = IsKnownVideoFile(Path.GetExtension(fileName));
                 dataGridView1.Rows.Add(enabled, Path.GetFileName(fileName), Path.GetFileName(fileName));
             }
 
@@ -381,6 +391,24 @@ namespace MALRenamer
                 MessageBox.Show("Error! Didn't have write access to one or more files! Activating secret technique of running away! (No files have been modified)", 
                     "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
+
+            if (checkBox_BackupFiles.Checked)
+            {
+                string backupDir = textBox_SourceFolder.Text + "\\backup";
+                if (Directory.Exists(backupDir))
+                {
+                    MessageBox.Show("Error! There is already a backup folder at " + backupDir + " - You must delete this folder before proceeding!",
+                    "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                Directory.CreateDirectory(backupDir);
+
+                foreach (string entry in fileEntries)
+                {
+                    File.Copy(entry, backupDir + "/" + Path.GetFileName(entry));
+                }
             }
 
 

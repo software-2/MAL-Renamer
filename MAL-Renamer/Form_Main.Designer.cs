@@ -97,6 +97,7 @@
             this.projectGitHubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportABugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkBox_BackupFiles = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -368,6 +369,7 @@
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.checkBox_BackupFiles);
             this.groupBox2.Controls.Add(this.textBox_StartingEpisode);
             this.groupBox2.Controls.Add(this.textBox_SectionDivider);
             this.groupBox2.Controls.Add(this.label9);
@@ -789,6 +791,16 @@
             this.checkForUpdatesToolStripMenuItem.Text = "Check For &Updates";
             this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.CheckForUpdatesToolStripMenuItem_Click);
             // 
+            // checkBox_BackupFiles
+            // 
+            this.checkBox_BackupFiles.AutoSize = true;
+            this.checkBox_BackupFiles.Location = new System.Drawing.Point(6, 167);
+            this.checkBox_BackupFiles.Name = "checkBox_BackupFiles";
+            this.checkBox_BackupFiles.Size = new System.Drawing.Size(175, 17);
+            this.checkBox_BackupFiles.TabIndex = 23;
+            this.checkBox_BackupFiles.Text = "Create backup before renaming";
+            this.checkBox_BackupFiles.UseVisualStyleBackColor = true;
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -915,6 +927,7 @@
         private System.Windows.Forms.ToolStripMenuItem reportABugToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
+        private System.Windows.Forms.CheckBox checkBox_BackupFiles;
     }
 }
 
