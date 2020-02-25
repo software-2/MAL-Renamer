@@ -196,6 +196,13 @@ namespace MALRenamer
             {
                 UpdateGrid();
             }
+
+            if (episodes.Count == 0)
+            {
+                MessageBox.Show("Sorry, there's no episode information for this series. " +
+                    "This might be because it's a single special episode or something like that. You can manually rename files by double clicking the file,",
+                    "No Episodes Found!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private async Task loadAnimeInfo()
