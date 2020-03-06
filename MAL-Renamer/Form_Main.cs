@@ -200,9 +200,29 @@ namespace MALRenamer
 
             if (episodes.Count == 0)
             {
-                MessageBox.Show("Sorry, there's no episode information for this series. " +
-                    "This might be because it's a single special episode or something like that. You can manually rename files by double clicking the file,",
-                    "No Episodes Found!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                if (info.EpisodeCount > 0)
+                {
+                    //Populate with fake data
+                    for (int i = 0; i < info.EpisodeCount; ++i)
+                    {
+                        var ep = new Jikan.Episode();
+                        ep.ID = i;
+                        ep.Title = "";
+                        episodes.Add(ep);
+                    }
+                    
+                    MessageBox.Show("Sorry, MAL has no details about the episodes in this series, apart from number of episodes. (Can't include episode titles!)",
+                    "No Episode Details Found!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                    radioButton_Episodes_None.Checked = true;
+
+                }
+                else
+                {
+                    MessageBox.Show("Sorry, there's no episode information for this series. " +
+                        "This might be because it's a single special episode or something like that. You can manually rename files by double clicking the file,",
+                        "No Episodes Found!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
         }
 

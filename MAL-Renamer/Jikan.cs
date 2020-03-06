@@ -109,7 +109,7 @@ namespace MALRenamer
             public string TitleJapanese { get; set; }
 
             [JsonProperty(PropertyName = "episodes")]
-            public string EpisodeCount { get; set; }
+            public int EpisodeCount { get; set; }
 
             [JsonProperty(PropertyName = "synopsis")]
             public string Synopsis { get; set; }
