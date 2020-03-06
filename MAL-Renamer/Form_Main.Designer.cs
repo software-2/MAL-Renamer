@@ -55,6 +55,7 @@
             this.textBox_Title_Japanese = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkBox_BackupFiles = new System.Windows.Forms.CheckBox();
             this.textBox_StartingEpisode = new System.Windows.Forms.TextBox();
             this.textBox_SectionDivider = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -97,7 +98,10 @@
             this.projectGitHubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportABugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkBox_BackupFiles = new System.Windows.Forms.CheckBox();
+            this.textBox_ReplaceInvalidCharacters = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox_AddExtraToEpisodes = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -369,6 +373,10 @@
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.textBox_AddExtraToEpisodes);
+            this.groupBox2.Controls.Add(this.label17);
+            this.groupBox2.Controls.Add(this.textBox_ReplaceInvalidCharacters);
+            this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.checkBox_BackupFiles);
             this.groupBox2.Controls.Add(this.textBox_StartingEpisode);
             this.groupBox2.Controls.Add(this.textBox_SectionDivider);
@@ -380,6 +388,16 @@
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Advanced";
+            // 
+            // checkBox_BackupFiles
+            // 
+            this.checkBox_BackupFiles.AutoSize = true;
+            this.checkBox_BackupFiles.Location = new System.Drawing.Point(6, 167);
+            this.checkBox_BackupFiles.Name = "checkBox_BackupFiles";
+            this.checkBox_BackupFiles.Size = new System.Drawing.Size(175, 17);
+            this.checkBox_BackupFiles.TabIndex = 23;
+            this.checkBox_BackupFiles.Text = "Create backup before renaming";
+            this.checkBox_BackupFiles.UseVisualStyleBackColor = true;
             // 
             // textBox_StartingEpisode
             // 
@@ -791,15 +809,44 @@
             this.checkForUpdatesToolStripMenuItem.Text = "Check For &Updates";
             this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.CheckForUpdatesToolStripMenuItem_Click);
             // 
-            // checkBox_BackupFiles
+            // textBox_ReplaceInvalidCharacters
             // 
-            this.checkBox_BackupFiles.AutoSize = true;
-            this.checkBox_BackupFiles.Location = new System.Drawing.Point(6, 167);
-            this.checkBox_BackupFiles.Name = "checkBox_BackupFiles";
-            this.checkBox_BackupFiles.Size = new System.Drawing.Size(175, 17);
-            this.checkBox_BackupFiles.TabIndex = 23;
-            this.checkBox_BackupFiles.Text = "Create backup before renaming";
-            this.checkBox_BackupFiles.UseVisualStyleBackColor = true;
+            this.textBox_ReplaceInvalidCharacters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBox_ReplaceInvalidCharacters.Location = new System.Drawing.Point(6, 129);
+            this.textBox_ReplaceInvalidCharacters.Name = "textBox_ReplaceInvalidCharacters";
+            this.textBox_ReplaceInvalidCharacters.Size = new System.Drawing.Size(79, 20);
+            this.textBox_ReplaceInvalidCharacters.TabIndex = 25;
+            this.textBox_ReplaceInvalidCharacters.TextChanged += new System.EventHandler(this.textBox_ReplaceInvalidCharacters_TextChanged);
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 113);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(160, 13);
+            this.label11.TabIndex = 24;
+            this.label11.Text = "Replace Invalid Characters With";
+            // 
+            // textBox_AddExtraToEpisodes
+            // 
+            this.textBox_AddExtraToEpisodes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBox_AddExtraToEpisodes.Location = new System.Drawing.Point(115, 82);
+            this.textBox_AddExtraToEpisodes.Name = "textBox_AddExtraToEpisodes";
+            this.textBox_AddExtraToEpisodes.Size = new System.Drawing.Size(79, 20);
+            this.textBox_AddExtraToEpisodes.TabIndex = 27;
+            this.textBox_AddExtraToEpisodes.Text = "0";
+            this.textBox_AddExtraToEpisodes.TextChanged += new System.EventHandler(this.textBox_AddExtraToEpisodes_TextChanged);
+            // 
+            // label17
+            // 
+            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(115, 66);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(160, 13);
+            this.label17.TabIndex = 26;
+            this.label17.Text = "Add Extra Numbers To Episodes";
             // 
             // Form_Main
             // 
@@ -928,6 +975,10 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
         private System.Windows.Forms.CheckBox checkBox_BackupFiles;
+        private System.Windows.Forms.TextBox textBox_ReplaceInvalidCharacters;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBox_AddExtraToEpisodes;
+        private System.Windows.Forms.Label label17;
     }
 }
 

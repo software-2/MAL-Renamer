@@ -58,7 +58,7 @@ namespace MALRenamer
             if (checkBox_IncludeEpisode.Checked)
             {
                 episode = textBox_Episode_Prefix.Text + 
-                    index.ToString(textBox_Episode_Digits.Text) + 
+                    (index + int.Parse(textBox_AddExtraToEpisodes.Text)).ToString(textBox_Episode_Digits.Text) + 
                     textBox_Episode_Suffix.Text;
             }
 
@@ -84,7 +84,7 @@ namespace MALRenamer
             string[] invalidChars = new string[] { "<", ">", ":", "\"", "/", "\\", "|", "?", "*" };
             foreach (string invalidChar in invalidChars)
             {
-                original = original.Replace(invalidChar, "");
+                original = original.Replace(invalidChar, textBox_ReplaceInvalidCharacters.Text);
             }
             return original;
         }
@@ -156,7 +156,8 @@ namespace MALRenamer
                     episodeCount++;
                     enabledRowCount++;
                     row.Cells[1].Value = Path.GetFileName(fileEntries[fileEntryCount]);
-                    row.Cells[2].Value = GenerateFileName(episodeCount + int.Parse(textBox_StartingEpisode.Text), Path.GetExtension(fileEntries[fileEntryCount]));
+                    row.Cells[2].Value = GenerateFileName(episodeCount + int.Parse(textBox_StartingEpisode.Text == null ? "0" : textBox_StartingEpisode.Text), 
+                        Path.GetExtension(fileEntries[fileEntryCount]));
                 } else
                 {
                     row.Cells[1].Value = Path.GetFileName(fileEntries[fileEntryCount]);
@@ -633,6 +634,11 @@ namespace MALRenamer
             UpdateGrid();
         }
 
+        private void textBox_ReplaceInvalidCharacters_TextChanged(object sender, EventArgs e)
+        {
+            UpdateGrid();
+        }
+
         private void CheckBox_IncludeSeason_CheckedChanged(object sender, EventArgs e)
         {
             bool enabled = checkBox_IncludeSeason.Checked;
@@ -776,6 +782,11 @@ namespace MALRenamer
                     System.Diagnostics.Process.Start("https://github.com/software-2/MAL-Renamer/releases"); 
                 }
             }
+        }
+
+        private void textBox_AddExtraToEpisodes_TextChanged(object sender, EventArgs e)
+        {
+            UpdateGrid();
         }
     }
 }
