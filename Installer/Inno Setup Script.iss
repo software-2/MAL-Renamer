@@ -3,7 +3,7 @@
 
 #define MyAppName "MAL Renamer"
 #define MyAppVersion "1.1"
-#define MyAppPublisher "Software2"
+#define MyAppPublisher "Anthony Bryan"
 #define MyAppURL "https://github.com/software-2/MAL-Renamer"
 #define MyAppExeName "MAL Renamer.exe"
 
