@@ -193,11 +193,6 @@ namespace MALRenamer
             textBox_Title_English.Text = info.TitleEnglish;
             textBox_Title_Japanese.Text = info.TitleJapanese;
 
-            if (textBox_SourceFolder.Text.Length > 0)
-            {
-                UpdateGrid();
-            }
-
             if (episodes.Count == 0)
             {
                 if (info.EpisodeCount > 0)
@@ -205,9 +200,11 @@ namespace MALRenamer
                     //Populate with fake data
                     for (int i = 0; i < info.EpisodeCount; ++i)
                     {
-                        var ep = new Jikan.Episode();
-                        ep.ID = i;
-                        ep.Title = "";
+                        var ep = new Jikan.Episode
+                        {
+                            ID = i,
+                            Title = ""
+                        };
                         episodes.Add(ep);
                     }
                     
@@ -223,6 +220,34 @@ namespace MALRenamer
                         "This might be because it's a single special episode or something like that. You can manually rename files by double clicking the file,",
                         "No Episodes Found!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
+            }
+            else if (episodes.Count != info.EpisodeCount)
+            {
+                //Even worse - there's some episode info, but not the full thing
+                List<Jikan.Episode> newEpList = new List<Jikan.Episode>();
+                for (int i = 0; i < info.EpisodeCount; ++i)
+                {
+                    var ep = new Jikan.Episode
+                    {
+                        ID = i,
+                        Title = ""
+                    };
+                    newEpList.Add(ep);
+                }
+                foreach (Jikan.Episode episode in episodes)
+                {
+                    newEpList[episode.ID - 1].Title = episode.Title;
+                    newEpList[episode.ID - 1].TitleJP = episode.TitleJP;
+                    newEpList[episode.ID - 1].TitleRO = episode.TitleRO;
+                }
+                episodes = newEpList;
+                MessageBox.Show("Bah! MAL has an incomplete set of episodes for this anime! I've added all the episode titles I know of.",
+                    "No Episode Details Found!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            if (textBox_SourceFolder.Text.Length > 0)
+            {
+                UpdateGrid();
             }
         }
 
