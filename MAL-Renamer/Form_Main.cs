@@ -16,6 +16,8 @@ namespace MALRenamer
 {
     public partial class Form_Main : Form
     {
+        static readonly Version currentVersion = new Version(1, 1, 0);
+
         List<Jikan.Episode> episodes;
         Jikan.GeneralInfo info;
         string[] fileEntries;
@@ -806,9 +808,10 @@ namespace MALRenamer
             {
                 var parsed = Version.Parse(version);
                 
-                if (parsed.CompareTo(new Version(1, 0, 0)) != 0)
+                if (parsed.CompareTo(currentVersion) != 0)
                 {
-                    var result = MessageBox.Show("There is a new version! Want to go get it?", "New Version!", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    var dialog = "There is a new version! Want to go get it?\n\nYour Version: " + parsed.ToString() + "\n" + "New Version: " + currentVersion.ToString();
+                    var result = MessageBox.Show(dialog, "New Version!", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                     if (result == DialogResult.Yes)
                     {
                         System.Diagnostics.Process.Start("https://github.com/software-2/MAL-Renamer/releases");
