@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -69,11 +69,11 @@ namespace MALRenamer
             {
                 episodeTitle = textBox_SectionDivider.Text + episodes[index - 1].Title;
             }
-            else if (radioButton_Episodes_Default.Checked)
+            else if (radioButton_Episodes_En.Checked)
             {
                 episodeTitle = textBox_SectionDivider.Text + episodes[index - 1].TitleRO;
             }
-            else if (radioButton_Episodes_Default.Checked)
+            else if (radioButton_Episodes_Jp.Checked)
             {
                 episodeTitle = textBox_SectionDivider.Text + episodes[index - 1].TitleJP;
             }
